@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:16:22 by crmanzan          #+#    #+#             */
-/*   Updated: 2024/01/23 13:10:15 by crmanzan         ###   ########.fr       */
+/*   Updated: 2024/01/25 10:41:26 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ static int	ft_puthexptr(unsigned long n, int shift, int mayus)
 	{
 		if (n < 10)
 		{
-			if (char_printf(n + '0') == -1)
+			if (ft_char_printf(n + '0') == -1)
 				return (-1);
 		}
 		else
 		{
-			if (char_printf(n - 10 + 'a' + mayus) == -1)
+			if (ft_char_printf(n - 10 + 'a' + mayus) == -1)
 				return (-1);
 		}
 	}

@@ -6,7 +6,7 @@
 #    By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/14 14:55:40 by crmanzan          #+#    #+#              #
-#    Updated: 2023/10/19 20:54:14 by crmanzan         ###   ########.fr        #
+#    Updated: 2024/01/23 12:24:41 by crmanzan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,11 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -MMD
 
 SRCS = 	ft_printf.c \
-		printnbr.c \
-		printunnbr.c \
-		printhexptr.c \
-		printchar.c \
-		printstr.c \
+		nbr_printf.c \		
+		unnbr_printf.c \
+		hexptr_printf.c \
+		char_printf.c \
+		str_printf.c \
 		ft_strchr.c
 
 OBJ = $(SRCS:.c=.o)
