@@ -15,9 +15,29 @@
 #include "libft/libft.h"
 #include <unistd.h>
 
-static void	action(int signal, siginfo_t *info, void *context)
+void	action(int signum, siginfo_t *info, void *context)
 {
-	return (0);
+	static int	bit = 7;
+	static int	c = 0;
+
+	(void)context;
+	(void)info;
+//	SIGUSR1 is bit 1 and SIGUSR2 is bit 0 bc i want
+//	If the signal sent by the client is equal as sigusr1
+	if (signum == SIGUSR1)
+		//We always add a one and then move the bit to the left
+		c |= (1 << bit);
+	// We decrease the bit counter
+	bit--;
+	if (bit == -1)
+	{
+		//We write the char
+		write(1, &c, 1);
+		//We reset the counter
+		bit = 7;
+		//We set all the bit as 0
+		c = 0;
+	}
 }
 
 int	main(void)
@@ -29,6 +49,7 @@ int	main(void)
 	ft_putchar_fd('\n', 1);
 	s_sigaction.sa_sigaction = action;
 	s_sigaction.sa_flags = SA_SIGINFO;
+	//sigusr1 equals 0, 2 equals 1
 	sigaction(SIGUSR1, &s_sigaction, NULL);
 	sigaction(SIGUSR2, &s_sigaction, NULL);
 	while (1)
