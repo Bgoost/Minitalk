@@ -44,9 +44,11 @@ libft:
 	$(LIBFT_MAKE)
 
 clean:
+	$(LIBFT_MAKE) clean
 	rm -rf $(OBJ_C) $(DEP_C) $(OBJ_S) $(DEP_S)
 
 fclean: clean
+	$(LIBFT_MAKE) fclean
 	rm -rf $(CLIENT) $(SERVER)
 
 re: fclean all
