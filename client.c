@@ -12,6 +12,8 @@
 
 #include "minitalk.h"
 
+//  LINE 24: mascara de bits lo que hace es que pone todo lo que nosta en la 
+//  posicion "bit" en 0
 void send(int pid, char *string)
 {
     int i = 0;
@@ -21,7 +23,6 @@ void send(int pid, char *string)
         bit = 0;
         while(bit < 8)
         {
-            //mascara de bits lo que hace es que pone todo lo que nosta en la posicion "bit" en 0
             if (string[i] & (1 << bit))
                 kill(pid, SIGUSR1); // 1
             else
@@ -36,7 +37,7 @@ void send(int pid, char *string)
 int main(int argc, char *argv[])
 {
     if(argc != 3)
-        return (write(2, "Usage: ./client <PID> <message>\n", 33), 1);
+        return (write(2, "Usage: ./client <PID> <message>\n", 32), 1);
     send(ft_atoi(argv[1]), argv[2]);
     return (0);
 }

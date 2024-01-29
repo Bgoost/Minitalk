@@ -12,6 +12,13 @@
 
 #include "minitalk.h"
 
+//	SIGUSR1 is bit 1 and SIGUSR2 is bit 0 bc i want
+//	LINE 29: If the signal sent by the client is equal as sigusr1
+//	LINE 30: We always add a one and then move the bit to the left
+//	LINE 31: We decrease the bit counter
+//	LINE 34: We write the char
+//	LINE 35: We reset the counter
+//	LINE 36: We set all the bit as 0
 static void	recieve(int signum, siginfo_t *info, void *context)
 {
 	static int	bit = 0;
@@ -19,20 +26,13 @@ static void	recieve(int signum, siginfo_t *info, void *context)
 
 	(void)context;
 	(void)info;
-//	SIGUSR1 is bit 1 and SIGUSR2 is bit 0 bc i want
-//	If the signal sent by the client is equal as sigusr1
 	if (signum == SIGUSR1)
-		//We always add a one and then move the bit to the left
 		c |= (1 << bit);
-	// We decrease the bit counter
 	bit++;
 	if (bit == 8)
 	{
-		//We write the char
 		write(1, &c, 1);
-		//We reset the counter
 		bit = 0;
-		//We set all the bit as 0
 		c = 0;
 	}
 }
@@ -46,7 +46,6 @@ int	main(void)
 	ft_putchar_fd('\n', 1);
 	s_sigaction.sa_sigaction = recieve;
 	s_sigaction.sa_flags = SA_SIGINFO;
-	//sigusr1 equals 0, 2 equals 1
 	sigaction(SIGUSR1, &s_sigaction, NULL);
 	sigaction(SIGUSR2, &s_sigaction, NULL);
 	while (1)
