@@ -10,14 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <signal.h>
-#include "libft/libft.h"
-#include <unistd.h>
+#include "minitalk.h"
 
-void	action(int signum, siginfo_t *info, void *context)
+static void	recieve(int signum, siginfo_t *info, void *context)
 {
-	static int	bit = 7;
+	static int	bit = 0;
 	static int	c = 0;
 
 	(void)context;
@@ -28,13 +25,13 @@ void	action(int signum, siginfo_t *info, void *context)
 		//We always add a one and then move the bit to the left
 		c |= (1 << bit);
 	// We decrease the bit counter
-	bit--;
-	if (bit == -1)
+	bit++;
+	if (bit == 8)
 	{
 		//We write the char
 		write(1, &c, 1);
 		//We reset the counter
-		bit = 7;
+		bit = 0;
 		//We set all the bit as 0
 		c = 0;
 	}
@@ -47,7 +44,7 @@ int	main(void)
 	ft_putstr_fd("Server PID: ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putchar_fd('\n', 1);
-	s_sigaction.sa_sigaction = action;
+	s_sigaction.sa_sigaction = recieve;
 	s_sigaction.sa_flags = SA_SIGINFO;
 	//sigusr1 equals 0, 2 equals 1
 	sigaction(SIGUSR1, &s_sigaction, NULL);
