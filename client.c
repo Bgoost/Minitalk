@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 12:00:11 by crmanzan          #+#    #+#             */
-/*   Updated: 2024/01/25 14:10:53 by crmanzan         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:17:03 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 //  LINE 24: mascara de bits lo que hace es que pone todo lo que nosta en la 
 //  posicion "bit" en 0
-void send(int pid, char *string)
-{
-    int i = 0;
-    int bit = 0;
 
-    while(string[i]){
+void    send(int pid, char *string)
+{
+    int i;
+    int bit;
+
+    i = 0;
+    bit = 0;
+    while (string[i]){
         bit = 0;
         while(bit < 8)
         {

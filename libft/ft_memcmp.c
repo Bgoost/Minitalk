@@ -6,14 +6,15 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:32:36 by crmanzan          #+#    #+#             */
-/*   Updated: 2023/09/26 16:35:35 by crmanzan         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:00:50 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+//#include <stdio.h>
+//#include <string.h>
+#include "libft.h"
+
+int	ft_memcmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*a;

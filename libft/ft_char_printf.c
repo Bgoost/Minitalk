@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:51:40 by crmanzan          #+#    #+#             */
-/*   Updated: 2024/01/23 13:09:35 by crmanzan         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:55:41 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 //#include <stdio.h>
 //#include <unistd.h>
 
-int ft_char_printf(char c)
+int	ft_char_printf(char c)
 {
 	int	result;
 
