@@ -6,7 +6,7 @@
 /*   By: crmanzan <crmanzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:22:20 by crmanzan          #+#    #+#             */
-/*   Updated: 2024/02/19 10:12:35 by crmanzan         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:48:13 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	recieve(int signum, siginfo_t *info, void *context)
 		bit = 0;
 		c = 0;
 	}
-    kill(info->si_pid, signal);
+	kill(info->si_pid, signal);
 }
 
 int	main(void)
