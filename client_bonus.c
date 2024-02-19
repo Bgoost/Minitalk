@@ -6,12 +6,14 @@
 /*   By: crmanzan <crmanzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:20:23 by crmanzan          #+#    #+#             */
-/*   Updated: 2024/02/13 20:04:52 by crmanzan         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:34:08 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
 
+//  LINE 27: mascara de bits lo que hace es que pone todo lo que nosta en la 
+//  posicion "bit" en 0. RECUERDA: sigusr1 es bit 1y el usr2 es el 0
 int g_wait;
 
 static void send_char(int pid, char c)
@@ -63,6 +65,6 @@ int	main(int argc, char *argv[])
 	s_sigaction.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_sigaction, NULL);
     sigaction(SIGUSR2, &s_sigaction, NULL);
-	send(ft_atoi(argv[1]), argv[2]);
+	//send(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }

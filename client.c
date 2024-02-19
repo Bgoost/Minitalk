@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crmanzan <crmanzan@student.42barcel>       +#+  +:+       +#+        */
+/*   By: crmanzan <crmanzan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 12:00:11 by crmanzan          #+#    #+#             */
-/*   Updated: 2024/01/31 19:33:50 by crmanzan         ###   ########.fr       */
+/*   Updated: 2024/02/19 10:34:00 by crmanzan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-//  LINE 24: mascara de bits lo que hace es que pone todo lo que nosta en la 
+//  LINE 30: mascara de bits lo que hace es que pone todo lo que nosta en la 
 //  posicion "bit" en 0. RECUERDA: sigusr1 es bit 1y el usr2 es el 0
 
 void	send(int pid, char *string)
